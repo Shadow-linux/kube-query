@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: jtthink-ngx-ds
+  namespace: default
+  labels:
+    app: v1
+    test: label
+spec:
+  selector:
+    matchLabels:
+      app: jtthink-ngx-ds
+  template:
+    metadata:
+      labels:
+        app: jtthink-ngx-ds
+    spec:
+      containers:
+        - name: jt-nginx-ds
+          image: nginx:1.18-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /share_dir
+              name: temp-dir
+      volumes:
+        - name: temp-dir
+          emptyDir: {}
+
+
+

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jtthink-ngx
+  namespace: default
+  labels:
+    app: v1
+    test: label
+spec:
+  selector:
+    matchLabels:
+      app: jtthink-ngx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jtthink-ngx
+    spec:
+      containers:
+        - name: jt-nginx
+          image: nginx:1.18-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /share_dir
+              name: temp-dir
+      volumes:
+        - name: temp-dir
+          emptyDir: {}
+
+
+
