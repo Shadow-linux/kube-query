@@ -1,3 +1,7 @@
-rm ./kubectl-ops
-go build -o kubectl-query ./main.go
-chmod a+x ./kubectl-query
+#!/bin/bash
+
+PROJECT_NAME="kubectl-query"
+
+rm ./bin/${PROJECT_NAME}
+go build -o ./bin/${PROJECT_NAME} ./main.go
+chmod a+x ./bin/${PROJECT_NAME}
