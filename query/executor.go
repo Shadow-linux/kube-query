@@ -27,6 +27,7 @@ Resource Commands (quick query):
   daemonset		Get resource information, relationship.
   configmap		Get resource information, relationship.
   job			Get resource information, relationship.
+  nodes			Get resource information, relationship.
 
 ---
 

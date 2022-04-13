@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	version  string = "0.0.1"
-	revision string = ""
+	Version  string = "0.0.1"
+	Revision string = ""
 )
 
 func Executor(line string) {
@@ -105,12 +105,6 @@ func Completer(d prompt.Document) []prompt.Suggest {
 
 }
 
-func setDebugMode() {
-	debug := flag.Bool("debug", false, "Turn on debug mode.")
-	flag.Parse()
-	query.Debug = *debug
-}
-
 func main() {
 	defer func() {
 		query.Print("Bye !")
@@ -119,14 +113,21 @@ func main() {
 		}
 	}()
 
-	setDebugMode()
+	debug := flag.Bool("debug", false, "Turn on debug mode.")
+	version := flag.Bool("version", false, "Print version.")
+	flag.Parse()
+	query.Debug = *debug
+	if *version {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
 
 	//init
 	query.InitClient()
 	query.InitInformerCache()
 
 	// prompt
-	fmt.Printf("kube-query %s (rev-%s)\n", version, revision)
+	fmt.Printf("kube-query %s (rev-%s)\n", Version, Revision)
 	fmt.Println("Please use `exit` or `Ctrl-D` to exit this program.")
 	query.ConsoleStdoutWriter = prompt.NewStdoutWriter()
 	p := prompt.New(

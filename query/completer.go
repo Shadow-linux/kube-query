@@ -13,7 +13,7 @@ var (
 	ArgServiceAccount = prompt.Suggest{Text: "-a", Description: "account (service), display service account."}
 	ArgVolumes        = prompt.Suggest{Text: "-v", Description: "volumes, display volumes & volume mounts."}
 	ArgEvents         = prompt.Suggest{Text: "-e", Description: "events, display events."}
-	ArgInteractive    = prompt.Suggest{Text: "-i", Description: "interactive, interactive with container."}
+	ArgInteractive    = prompt.Suggest{Text: "-i", Description: "interactive, interactive with container. default: the first container."}
 	ArgShell          = prompt.Suggest{Text: "-s", Description: "shell command, specify shell command like: sh, /bin/bash. [default: sh]"}
 
 	// output mode
