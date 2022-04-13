@@ -187,6 +187,19 @@ func FetchConfigMapWithName(name, ns string) *v1.ConfigMap {
 	return obj
 }
 
+func FetchNodes(labels_ ...map[string]string) []*v1.Node {
+	l := ParserLabels(labels_)
+	objs, err := InfoFact.Core().V1().Nodes().Lister().List(l)
+	WrapError(err)
+	return objs
+}
+
+func FetchNodeWithName(name string) *v1.Node {
+	obj, err := InfoFact.Core().V1().Nodes().Lister().Get(name)
+	WrapError(err)
+	return obj
+}
+
 func RuntimeObject2Yaml(obj runtime.Object) string {
 	if obj == nil {
 		return ""

@@ -296,6 +296,15 @@ func (this *cmdResourceExecutorTool) Labels(labels map[string]string) string {
 	return strings.Join(contents, "\n")
 }
 
+func (this *cmdResourceExecutorTool) Annotations(annos map[string]string) string {
+	contents := []string{
+		"Annotations: ",
+	}
+	annoSlice := Map2Slice(annos)
+	contents = append(contents, annoSlice...)
+	return strings.Join(contents, "\n")
+}
+
 func RegisterCmdResources(resource CmdResourceInterface) {
 	ResourcesList = append(ResourcesList, resource)
 }

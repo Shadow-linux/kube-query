@@ -66,6 +66,8 @@ func InitInformerCache() {
 	InfoFact.Core().V1().Events().Informer().AddEventHandler(&GenericHandler{})
 	// configmaps
 	InfoFact.Core().V1().ConfigMaps().Informer().AddEventHandler(&GenericHandler{})
+	// nodes
+	InfoFact.Core().V1().Nodes().Informer().AddEventHandler(&GenericHandler{})
 
 	// start
 	InfoFact.Start(wait.NeverStop)

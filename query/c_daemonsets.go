@@ -72,7 +72,9 @@ func (this *DaemonSets) Execute(ctx *PromptCtx) string {
 			if RuleJudgeLineHasWords(ctx.Line, ArgEvents.Text) {
 				return this.exec.Events(ds)
 			}
-
+			if RuleJudgeLineHasWords(ctx.Line, ArgAnnotaions.Text) {
+				return this.exec.Tool.Annotations(ds.Annotations)
+			}
 			// ds <name> -r
 			if RuleJudgeLineHasWords(ctx.Line, ArgRelationship.Text) {
 				return this.exec.Relationship(ds)
@@ -120,6 +122,7 @@ func (this DaemonSetsSuggestion) Helper() []prompt.Suggest {
 		ArgRelationship,
 		ArgLabel,
 		ArgEvents,
+		ArgAnnotaions,
 	}
 }
 

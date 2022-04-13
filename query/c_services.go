@@ -71,9 +71,12 @@ func (this *Service) Execute(ctx *PromptCtx) string {
 			if RuleJudgeLineHasWords(ctx.Line, ArgLabel.Text) {
 				return this.exec.Labels(svc)
 			}
-			// pods <PodName> -e
 			if RuleJudgeLineHasWords(ctx.Line, ArgEvents.Text) {
 				return this.exec.Events(svc)
+			}
+
+			if RuleJudgeLineHasWords(ctx.Line, ArgAnnotaions.Text) {
+				return this.exec.Tool.Annotations(svc.Annotations)
 			}
 		}
 	}
@@ -118,6 +121,7 @@ func (this ServicesSuggestion) Helper() []prompt.Suggest {
 		ArgLabel,
 		ArgRelationship,
 		ArgEvents,
+		ArgAnnotaions,
 	}
 }
 

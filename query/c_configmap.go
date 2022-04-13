@@ -67,9 +67,13 @@ func (this *ConfigMap) Execute(ctx *PromptCtx) string {
 			if RuleJudgeLineHasWords(ctx.Line, ArgLabel.Text) {
 				return this.exec.Labels(cm)
 			}
-			// pods <PodName> -e
+			// cm <ServiceName> -e
 			if RuleJudgeLineHasWords(ctx.Line, ArgEvents.Text) {
 				return this.exec.Events(cm)
+			}
+			// cm <ServiceName> --anno
+			if RuleJudgeLineHasWords(ctx.Line, ArgAnnotaions.Text) {
+				return this.exec.Tool.Annotations(cm.Annotations)
 			}
 		}
 	}
@@ -110,9 +114,10 @@ func NewConfigMapSuggestion(ctx *PromptCtx) *ConfigMapSuggestion {
 
 func (this ConfigMapSuggestion) Helper() []prompt.Suggest {
 	return prompt.FilterHasPrefix([]prompt.Suggest{
-		ModeDesc,
-		ModeYAML,
-		ModeJson,
+		ArgOutput,
+		ArgEvents,
+		ArgLabel,
+		ArgAnnotaions,
 	}, this.ctx.Word, false)
 }
 

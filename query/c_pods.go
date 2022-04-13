@@ -99,7 +99,9 @@ func (this *Pod) Execute(ctx *PromptCtx) string {
 			if RuleJudgeLineHasWords(ctx.Line, ArgServiceAccount.Text) {
 				return this.exec.ServiceAccount(pod)
 			}
-
+			if RuleJudgeLineHasWords(ctx.Line, ArgAnnotaions.Text) {
+				return this.exec.Tool.Annotations(pod.Annotations)
+			}
 		}
 	}
 	return ""
@@ -128,7 +130,6 @@ func (this *Pod) Suggestions(ctx *PromptCtx) []prompt.Suggest {
 			if RuleJudgeWordExists(ctx.D.GetWordBeforeCursorWithSpace(), "-s ") {
 				return this.suggest.ArgsShell()
 			}
-			// pods <PodName> -r
 
 		}
 		if RuleCanRemindHelper(ctx.D) {
@@ -158,6 +159,7 @@ func (this PodsSuggestion) Helper() []prompt.Suggest {
 		ArgLabel,
 		ArgServiceAccount,
 		ArgVolumes,
+		ArgAnnotaions,
 	}
 }
 
@@ -215,11 +217,12 @@ func (this PodsSuggestion) ArgsRelationship() []prompt.Suggest {
 }
 
 type PodsExecutor struct {
-	ctx *PromptCtx
+	ctx  *PromptCtx
+	Tool *cmdResourceExecutorTool
 }
 
 func NewPodsExecutor(ctx *PromptCtx) *PodsExecutor {
-	return &PodsExecutor{ctx: ctx}
+	return &PodsExecutor{ctx: ctx, Tool: newCmdResourceExecutorTool()}
 }
 
 // o

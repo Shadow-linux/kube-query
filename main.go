@@ -33,6 +33,12 @@ func Executor(line string) {
 	case line == "help":
 		query.Print(query.CmdHelpInfo)
 		return
+	case line == "help query":
+		query.Print(query.KubeQueryHelp)
+		return
+	case line == "help kubectl":
+		query.Print(query.KubePromptHelp)
+		return
 	case strings.HasPrefix(line, "@"):
 		query.Logger("Shell mode.")
 		query.PureCmdRun(line[1:], true)
@@ -134,7 +140,7 @@ func main() {
 		Executor,
 		Completer,
 		prompt.OptionTitle("kube-prompt: interactive kubernetes client"),
-		prompt.OptionPrefix(">>> "),
+		prompt.OptionPrefix("kube-query ~ > "),
 		prompt.OptionInputTextColor(prompt.White),
 		prompt.OptionPrefixTextColor(prompt.Yellow),
 		prompt.OptionCompletionWordSeparator(completer.FilePathCompletionSeparator),

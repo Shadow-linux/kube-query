@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	CmdHelpInfo = `
+	KubeQueryHelp = `
 Kube-query is a kubectl plugin what easier to query and operate Kubernetes cluster.
   Find more information at: https://github.com/Shadow-linux/kube-query
 
@@ -28,9 +28,8 @@ Resource Commands (quick query):
   configmap		Get resource information, relationship.
   job			Get resource information, relationship.
   nodes			Get resource information, relationship.
-
----
-
+`
+	KubePromptHelp = `
 Native kubectl controls the Kubernetes cluster manager.
 
  Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
@@ -91,8 +90,11 @@ Other Commands:
   config        Modify kubeconfig files
   plugin        Provides utilities for interacting with plugins.
   version       Print the client and server version information
-	
 `
+)
+
+var (
+	CmdHelpInfo = KubeQueryHelp + "\n" + "---" + "\n" + KubePromptHelp
 )
 
 func PureCmdRun(line string, autoOutput bool) string {

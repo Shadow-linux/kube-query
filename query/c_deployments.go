@@ -77,13 +77,14 @@ func (this *Deploy) Execute(ctx *PromptCtx) string {
 			if RuleJudgeLineHasWords(ctx.Line, ArgLabel.Text) {
 				return this.exec.Label(deploy)
 			}
-			// pods <PodName> -e
 			if RuleJudgeLineHasWords(ctx.Line, ArgEvents.Text) {
 				return this.exec.Event(deploy)
 			}
-			// pods <PodName> -v
 			if RuleJudgeLineHasWords(ctx.Line, ArgVolumes.Text) {
 				return this.exec.Volume(deploy)
+			}
+			if RuleJudgeLineHasWords(ctx.Line, ArgAnnotaions.Text) {
+				return this.exec.Tool.Annotations(deploy.Annotations)
 			}
 		}
 	}
@@ -133,6 +134,7 @@ func (this DeploySuggestion) Helper() []prompt.Suggest {
 		ArgEvents,
 		ArgVolumes,
 		ArgLabel,
+		ArgAnnotaions,
 	}
 }
 

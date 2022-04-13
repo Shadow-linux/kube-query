@@ -16,6 +16,7 @@ var (
 	ArgInteractive    = prompt.Suggest{Text: "-i", Description: "interactive, interactive with container. default: the first container."}
 	ArgShell          = prompt.Suggest{Text: "-s", Description: "shell command, specify shell command like: sh, /bin/bash. [default: sh]"}
 
+	ArgAnnotaions = prompt.Suggest{Text: "--anno", Description: "show annotations."}
 	// output mode
 	ModeYAML = prompt.Suggest{Text: "yaml", Description: "Output for yaml mode."}
 	ModeDesc = prompt.Suggest{Text: "desc", Description: "Output for desc mode."}
