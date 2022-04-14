@@ -11,9 +11,10 @@ import (
 )
 
 var (
-	RestCliConfig *rest.Config
-	ClientSet     *kubernetes.Clientset
-	InfoFact      informers.SharedInformerFactory
+	RestCliConfig      *rest.Config
+	ClientSet          *kubernetes.Clientset
+	InfoFact           informers.SharedInformerFactory
+	ReloadInfoFactChan chan bool
 )
 
 func InitClient() {

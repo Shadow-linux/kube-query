@@ -129,8 +129,17 @@ func main() {
 	}
 
 	//init
+	query.ReloadInfoFactChan = make(chan bool)
 	query.InitClient()
 	query.InitInformerCache()
+	go func() {
+		for {
+			<-query.ReloadInfoFactChan
+			query.Logger("Reload informer cache.")
+			query.InitClient()
+			query.InitInformerCache()
+		}
+	}()
 
 	// prompt
 	fmt.Printf("kube-query %s (rev-%s)\n", Version, Revision)
