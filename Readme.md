@@ -17,10 +17,10 @@ Binaries are available from [(github release)](https://github.com/Shadow-linux/k
 <summary>macOS (darwin) - amd64</summary>
 
 ```
-wget https://github.com/c-bata/kube-prompt/releases/download/v1.0.11/kube-prompt_v1.0.11_darwin_amd64.zip
-unzip kube-prompt_v1.0.11_darwin_amd64.zip
-chmod +x kube-prompt
-sudo mv ./kube-prompt /usr/local/bin/kube-prompt
+wget https://github.com/Shadow-linux/kube-query/releases/download/v1.0.0/kube-query_v1.0.0_darwin_amd64.zip
+unzip kube-query_v1.0.0_darwin_amd64.zip
+chmod +x kube-query.darwin-amd64
+sudo mv ./kube-query.darwin-amd64 /usr/local/bin/kube-query
 ```
 
 </details>
@@ -29,10 +29,10 @@ sudo mv ./kube-prompt /usr/local/bin/kube-prompt
 <summary>Linux - amd64</summary>
 
 ```
-wget https://github.com/c-bata/kube-prompt/releases/download/v1.0.11/kube-prompt_v1.0.11_linux_amd64.zip
-unzip kube-prompt_v1.0.11_linux_amd64.zip
-chmod +x kube-prompt
-sudo mv ./kube-prompt /usr/local/bin/kube-prompt
+wget https://github.com/Shadow-linux/kube-query/releases/download/v1.0.0/kube-query_v1.0.0_linux_amd64.zip
+unzip kube-query_v1.0.0_linux_amd64.zip
+chmod +x kube-query.linux-amd64
+sudo mv ./kube-query.linux-amd64 /usr/local/bin/kube-query
 ```
 
 </details>
@@ -169,7 +169,7 @@ kube-query ~ > get pods;
 kube-query ~ > get svc;
 ```
 
-The same way you normally use Kubectl anyway. Just you do not need input `kubectl`. 
+The same way you normally use Kubectl anyway, just you do not need input `kubectl`. 
 
 
 ## Author
