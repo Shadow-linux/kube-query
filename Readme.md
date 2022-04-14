@@ -61,7 +61,7 @@ mv bin/kube-query /usr/local/bin/kube-query
 Hopeful easier to query and manipulate K8S cluster.
 
 ## Usage
-#### Use way
+#### Start way
 * use in kubectl
 ```shell
 mv /usr/local/bin/kube-query /usr/local/bin/kubectl-query
