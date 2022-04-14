@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	Version  string = "v1.0.0"
+	Version  string = "v1.1.0"
 	Revision string = ""
 )
 
