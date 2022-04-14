@@ -61,6 +61,10 @@ mv bin/kube-query /usr/local/bin/kube-query
 Hopeful easier to query and manipulate K8S cluster.
 
 ## Usage
+* config your kubeconfig
+```shell
+export KUBECONFIG=~/.kube/config
+```
 #### Use way
 * use in kubectl
 ```shell
