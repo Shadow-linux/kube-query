@@ -46,6 +46,7 @@ chmod:
 build: main.go  ## Build a binary.
 	$(GO) build -ldflags "$(LDFLAGS)" -o bin/$(NAME) main.go
 
+
 .PHONY: help
 help: ## Show help text
 	@echo "Commands:"
