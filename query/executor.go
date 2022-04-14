@@ -117,7 +117,7 @@ func PureCmdRun(line string, autoOutput bool) string {
 		}
 		return strings.TrimSpace(res)
 	}
-
+	k8sReloadConfigCmd(line)
 	return ""
 }
 
@@ -150,6 +150,12 @@ func fetchArgNs() string {
 		argsNs = "-n " + GlobalNamespace
 	}
 	return argsNs
+}
+
+func k8sReloadConfigCmd(line string) {
+	if strings.Contains(line, "config use-context") {
+		ReloadInfoFactChan <- true
+	}
 }
 
 func K8sCmdRun(line string, autoOutput bool) string {

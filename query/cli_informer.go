@@ -11,13 +11,14 @@ import (
 )
 
 var (
-	RestCliConfig *rest.Config
-	ClientSet     *kubernetes.Clientset
-	InfoFact      informers.SharedInformerFactory
+	RestCliConfig      *rest.Config
+	ClientSet          *kubernetes.Clientset
+	InfoFact           informers.SharedInformerFactory
+	ReloadInfoFactChan chan bool
 )
 
 func InitClient() {
-	// get config flag from generic cli options (like: kebectl)
+	// get config flag from generic cli options (like: kubectl)
 	cfgFlags := genericclioptions.NewConfigFlags(true)
 	config, err := cfgFlags.ToRawKubeConfigLoader().ClientConfig()
 	if err != nil {
@@ -37,11 +38,9 @@ func (this *GenericHandler) OnAdd(obj interface{}) {
 }
 
 func (this *GenericHandler) OnUpdate(oldObj, newObj interface{}) {
-
 }
 
 func (this *GenericHandler) OnDelete(obj interface{}) {
-
 }
 
 func InitInformerCache() {
