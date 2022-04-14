@@ -1,4 +1,4 @@
-## kube-query
+# kube-query
 A kubectl plug-in that makes it easier to query and manipulate K8S clusters.
 [(what is kubectl plug-in ?)](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/)
 
