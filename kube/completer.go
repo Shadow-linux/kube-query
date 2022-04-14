@@ -86,10 +86,10 @@ func (c *Completer) Complete(d prompt.Document) []prompt.Suggest {
 	namespace := checkNamespaceArg(d)
 	if namespace == "" {
 		namespace = query.GlobalNamespace
-		if namespace == query.AllNamespace {
-			query.Print("Can not set namespace to <all>, when you use native kubectl command." +
-				"Please set namespace again.")
-		}
+		//if namespace == query.AllNamespace {
+		//	query.Print("Can not set namespace to <all>, when you use native kubectl command." +
+		//		"Please set namespace again.")
+		//}
 	}
 	commandArgs, skipNext := excludeOptions(args)
 	if skipNext {
