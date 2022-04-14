@@ -35,7 +35,7 @@ func FilePathComplete(p string) []prompt.Suggest {
 		}
 		words := strings.Split(p, "/")
 		w := words[len(words)-1]
-		return prompt.FilterContains(res, w, true)
+		return prompt.FilterHasPrefix(res, w, true)
 	}
 	return res
 }
