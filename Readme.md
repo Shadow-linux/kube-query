@@ -65,7 +65,8 @@ Hopeful easier to query and manipulate K8S cluster.
 ```shell
 export KUBECONFIG=~/.kube/config
 ```
-#### Use way
+
+#### Start way
 * use in kubectl
 ```shell
 mv /usr/local/bin/kube-query /usr/local/bin/kubectl-query
