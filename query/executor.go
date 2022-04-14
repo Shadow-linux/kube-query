@@ -16,7 +16,7 @@ Kube-query is a kubectl plugin what easier to query and operate Kubernetes clust
 Basic Commands (beginner):
   clear			Clear console.
   use			Set namespace context. like: use default , use all, use kube-system.
-  @				Start run shell command. like: '@ls /tmp' or '@ ls /tmp'
+  @			Start run shell command. like: '@ls /tmp' or '@ ls /tmp'
   help			Print help information.
   exit			Exit console.
 
