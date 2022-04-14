@@ -1,4 +1,7 @@
 # kube-query
+[![LICENSE](https://img.shields.io/github/license/Shadow-linux/kube-query
+)](https://github.com/Shadow-linux/kube-query/blob/master/LICENSE)
+
 A kubectl plug-in that makes it easier to query and manipulate K8S clusters.
 [(what is kubectl plug-in ?)](https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/)
 
@@ -58,6 +61,17 @@ mv bin/kube-query /usr/local/bin/kube-query
 Hopeful easier to query and manipulate K8S cluster.
 
 ## Usage
+#### Use way
+* use in kubectl
+```shell
+mv /usr/local/bin/kube-query /usr/local/bin/kubectl-query
+kubectl query [--debug]
+```
+
+* standalone
+```shell
+./kube-query [--debug]
+```
 
 #### Basic Command
 
