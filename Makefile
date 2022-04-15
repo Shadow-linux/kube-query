@@ -36,7 +36,7 @@ linux-arm64: ## Build a linux-arm64 pkg.
 	mkdir -p pkg; \
 	rm -f bin/$(NAME).linux-arm64 2> /dev/null; \
     GOOS=linux GOARCH=arm64 $(GO) build -ldflags "$(LDFLAGS)" -o bin/$(NAME).linux-arm64 main.go; \
-    zip pkg/$(NAME)_$(VERSION)_linux_arm64.zip bin/$(NAME).linnux-arm64;
+    zip pkg/$(NAME)_$(VERSION)_linux_arm64.zip bin/$(NAME).linux-arm64;
 
 .PHONY: chmod
 chmod:
