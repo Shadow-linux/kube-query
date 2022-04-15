@@ -253,14 +253,14 @@ func newCmdResourceExecutorTool() *cmdResourceExecutorTool {
 	return &cmdResourceExecutorTool{}
 }
 
-func (this *cmdResourceExecutorTool) Output(name, mode, kind string, obj runtime.Object) string {
+func (this *cmdResourceExecutorTool) Output(name, ns, mode, kind string, obj runtime.Object) string {
 	if mode == "yaml" {
 		return RuntimeObject2Yaml(obj)
 	}
 	if mode == "json" {
 		return RuntimeObject2Json(obj)
 	}
-	return K8sCmdRun(fmt.Sprintf("describe %v %s", kind, name), false)
+	return K8sCmdRun(fmt.Sprintf("describe %v %s", kind, name), false, ns)
 }
 
 func (this *cmdResourceExecutorTool) Events(uid types.UID) string {

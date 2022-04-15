@@ -138,7 +138,7 @@ func fetchContextList() {
 		return
 	}
 	updateLastFetchedAt(key)
-	r := query.K8sCmdRun("config get-contexts --no-headers -o name", false)
+	r := query.K8sCmdRun("config get-contexts --no-headers -o name", false, query.Empty)
 	r = strings.TrimRight(r, "\n")
 	contextList.Store(strings.Split(r, "\n"))
 }

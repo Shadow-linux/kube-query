@@ -23,7 +23,7 @@ Binaries are available from [(github release)](https://github.com/Shadow-linux/k
 wget https://github.com/Shadow-linux/kube-query/releases/download/v1.0.0/kube-query_v1.0.0_darwin_amd64.zip
 unzip kube-query_v1.0.0_darwin_amd64.zip
 chmod +x kube-query.darwin-amd64
-sudo mv ./kube-query.darwin-amd64 /usr/local/bin/kube-query
+sudo mv bin/kube-query.darwin-amd64 /usr/local/bin/kube-query
 ```
 
 </details>
@@ -35,7 +35,7 @@ sudo mv ./kube-query.darwin-amd64 /usr/local/bin/kube-query
 wget https://github.com/Shadow-linux/kube-query/releases/download/v1.0.0/kube-query_v1.0.0_linux_amd64.zip
 unzip kube-query_v1.0.0_linux_amd64.zip
 chmod +x kube-query.linux-amd64
-sudo mv ./kube-query.linux-amd64 /usr/local/bin/kube-query
+sudo mv bin/kube-query.linux-amd64 /usr/local/bin/kube-query
 ```
 
 </details>
@@ -67,13 +67,13 @@ export KUBECONFIG=~/.kube/config
 ```
 
 #### Start way
-* use in kubectl
+1. use in kubectl
 ```shell
 mv /usr/local/bin/kube-query /usr/local/bin/kubectl-query
 kubectl query [--debug]
 ```
 
-* standalone
+2. standalone
 ```shell
 ./kube-query [--debug]
 ```

@@ -160,7 +160,7 @@ func NewConfigMapExecutor(ctx *PromptCtx) *ConfigMapExecutor {
 func (this ConfigMapExecutor) Output(cm *v1.ConfigMap, arg string) string {
 	word := GetWordAfterArgWithSpace(this.ctx.Line, arg)
 	cm.ManagedFields = []metav1.ManagedFieldsEntry{}
-	return this.Tool.Output(cm.Name, word, "cm", cm)
+	return this.Tool.Output(cm.Name, cm.Namespace, word, "cm", cm)
 }
 
 // l

@@ -142,7 +142,7 @@ func ParserResourceName(fmtName string) (name, ns string) {
 		return fmtName, ""
 	}
 	s := strings.Split(fmtName, ".")
-	name, ns = s[0], s[1]
+	name, ns = strings.Join(s[0:len(s)-1], "."), s[len(s)-1]
 	return
 }
 

@@ -235,7 +235,7 @@ func (this PodsExecutor) Output(pod *v1.Pod, arg string) string {
 	if word == "json" {
 		return RuntimeObject2Json(pod)
 	}
-	return K8sCmdRun("describe pods  "+pod.Name, false)
+	return K8sCmdRun("describe pods  "+pod.Name, false, pod.Namespace)
 }
 
 // i

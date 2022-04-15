@@ -46,6 +46,8 @@ chmod:
 build: main.go  ## Build a binary.
 	$(GO) build -ldflags "$(LDFLAGS)" -o bin/$(NAME) main.go
 
+.PHONY: all
+all: linux-amd64 linux-arm64 darwin-amd64 darwin-arm64
 
 .PHONY: help
 help: ## Show help text

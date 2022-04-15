@@ -162,7 +162,7 @@ func NewNodesExecutor(ctx *PromptCtx) *NodesExecutor {
 func (this NodesExecutor) Output(no *v1.Node, arg string) string {
 	word := GetWordAfterArgWithSpace(this.ctx.Line, arg)
 	no.ManagedFields = []metav1.ManagedFieldsEntry{}
-	return this.Tool.Output(no.Name, word, "nodes", no)
+	return this.Tool.Output(no.Name, no.Namespace, word, "nodes", no)
 }
 
 // l

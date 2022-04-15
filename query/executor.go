@@ -142,13 +142,19 @@ source /etc/profile;
 	return PureCmdRun(execCMD, autoOutput)
 }
 
-func fetchArgNs() string {
+func fetchArgNs(ns string) string {
 	var argsNs string
-	if GlobalNamespace == "all" {
+	switch {
+	case ns != "":
+		argsNs = "-n " + ns
+		break
+	case GlobalNamespace == AllNamespace:
 		argsNs = "-A"
-	} else {
+		break
+	default:
 		argsNs = "-n " + GlobalNamespace
 	}
+
 	return argsNs
 }
 
@@ -158,14 +164,14 @@ func k8sReloadConfigCmd(line string) {
 	}
 }
 
-func K8sCmdRun(line string, autoOutput bool) string {
+func K8sCmdRun(line string, autoOutput bool, ns string) string {
 	var cmdLine string
 	if strings.Contains(line, "|") {
 		lines := strings.Split(line, "|")
-		firstColumn := lines[0] + " " + fetchArgNs()
+		firstColumn := lines[0] + " " + fetchArgNs(ns)
 		cmdLine = fmt.Sprintf("kubectl %s | %s", firstColumn, strings.Join(lines[1:], " "))
 	} else {
-		cmdLine = fmt.Sprintf("kubectl %s %s", line, fetchArgNs())
+		cmdLine = fmt.Sprintf("kubectl %s %s", line, fetchArgNs(ns))
 	}
 	Logger("K8sCmdRun: ", cmdLine)
 	return PureCmdRun(cmdLine, autoOutput)
