@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	Version  string = "v1.1.0"
+	Version  string = "v1.2.0"
 	Revision string = ""
 )
 
@@ -66,7 +66,7 @@ func Executor(line string) {
 	}
 
 	// kube-prompt
-	query.K8sCmdRun(line, true)
+	query.K8sCmdRun(line, true, query.Empty)
 	return
 }
 

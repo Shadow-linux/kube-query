@@ -176,7 +176,7 @@ func NewDeployExecutor(ctx *PromptCtx) *DeployExecutor {
 func (this *DeployExecutor) Output(deploy *appv1.Deployment, arg string) string {
 	word := GetWordAfterArgWithSpace(this.ctx.Line, arg)
 	deploy.ManagedFields = []metav1.ManagedFieldsEntry{}
-	return this.Tool.Output(deploy.Name, word, "deploy", deploy)
+	return this.Tool.Output(deploy.Name, deploy.Namespace, word, "deploy", deploy)
 }
 
 func (this *DeployExecutor) Relationship(deploy *appv1.Deployment) string {

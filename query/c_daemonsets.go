@@ -166,7 +166,7 @@ func NewDaemonSetsExecutor(ctx *PromptCtx) *DaemonSetsExecutor {
 func (this DaemonSetsExecutor) Output(ds *appsv1.DaemonSet, arg string) string {
 	word := GetWordAfterArgWithSpace(this.ctx.Line, arg)
 	ds.ManagedFields = []metav1.ManagedFieldsEntry{}
-	return this.Tool.Output(ds.Name, word, "ds", ds)
+	return this.Tool.Output(ds.Name, ds.Namespace, word, "ds", ds)
 }
 
 func (this *DaemonSetsExecutor) Relationship(ds *appsv1.DaemonSet) string {

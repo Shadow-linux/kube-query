@@ -167,7 +167,7 @@ func NewServiceExecutor(ctx *PromptCtx) *ServiceExecutor {
 func (this ServiceExecutor) Output(svc *v1.Service, arg string) string {
 	word := GetWordAfterArgWithSpace(this.ctx.Line, arg)
 	svc.ManagedFields = []metav1.ManagedFieldsEntry{}
-	return this.Tool.Output(svc.Name, word, "svc", svc)
+	return this.Tool.Output(svc.Name, svc.Namespace, word, "svc", svc)
 }
 
 // r, pods
