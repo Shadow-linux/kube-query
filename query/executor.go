@@ -169,7 +169,7 @@ func K8sCmdRun(line string, autoOutput bool, ns string) string {
 	if strings.Contains(line, "|") {
 		lines := strings.Split(line, "|")
 		firstColumn := lines[0] + " " + fetchArgNs(ns)
-		cmdLine = fmt.Sprintf("kubectl %s | %s", firstColumn, strings.Join(lines[1:], " "))
+		cmdLine = fmt.Sprintf("kubectl %s | %s", firstColumn, strings.Join(lines[1:], "|"))
 	} else {
 		cmdLine = fmt.Sprintf("kubectl %s %s", line, fetchArgNs(ns))
 	}
